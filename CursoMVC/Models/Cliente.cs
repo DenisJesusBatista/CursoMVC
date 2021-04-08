@@ -18,7 +18,7 @@ namespace CursoMVC.Models
 
         [Required(ErrorMessage = "Esse campo deve ser preenchido")]
         [StringLength(14, ErrorMessage = "Esse campo deve ter 14 caracteres com pontos e traço.")]
-        [CPFValido(ErrorMessage = "CPF inválido")]
+        //[CPFValido(ErrorMessage = "CPF inválido")]
         public string CPF { get; set; }
 
         [MaxLength(100, ErrorMessage = "Esse campo deve ter até 100 caracteres.")]
@@ -57,4 +57,4 @@ namespace CursoMVC.Models
         public EstadoCivil EstadoCivil { get; set; }
     }
 }
-}
+

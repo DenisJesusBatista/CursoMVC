@@ -7,8 +7,7 @@ using System.Threading.Tasks;
 namespace CursoMVC.Models
 {
     public class Context: DbContext
-    {
-        public DbSet<Cadastro> Cadastro { get; set; }
+    {        
         public DbSet<Categoria> Categorias { get; set; }
         public DbSet<Produto> Produtos { get; set; }
         public DbSet<Cliente> Clientes { get; set; }
