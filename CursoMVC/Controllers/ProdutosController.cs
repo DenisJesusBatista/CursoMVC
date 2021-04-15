@@ -47,7 +47,7 @@ namespace CursoMVC.Controllers
         // GET: Produtos/Create
         public IActionResult Create()
         {
-            ViewData["CategoriaId"] = new SelectList(_context.Categorias, "id", "id");
+            ViewData["CategoriaId"] = new SelectList(_context.Categorias, "id", "Descricao");
             return View();
         }
 
@@ -64,7 +64,7 @@ namespace CursoMVC.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CategoriaId"] = new SelectList(_context.Categorias, "id", "id", produto.CategoriaId);
+            ViewData["CategoriaId"] = new SelectList(_context.Categorias, "id", "Descricao", produto.CategoriaId);
             return View(produto);
         }
 
@@ -81,7 +81,7 @@ namespace CursoMVC.Controllers
             {
                 return NotFound();
             }
-            ViewData["CategoriaId"] = new SelectList(_context.Categorias, "id", "id", produto.CategoriaId);
+            ViewData["CategoriaId"] = new SelectList(_context.Categorias, "id", "Descricao", produto.CategoriaId);
             return View(produto);
         }
 
@@ -91,6 +91,7 @@ namespace CursoMVC.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Descricao,Quantidade,CategoriaId")] Produto produto)
+        
         {
             if (id != produto.Id)
             {
@@ -139,8 +140,8 @@ namespace CursoMVC.Controllers
 
             return View(produto);
         }
-
-        // POST: Produtos/Delete/5
+        
+        //POST: Produtos/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
